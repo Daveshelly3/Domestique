@@ -14,6 +14,25 @@ from .routers import push, riders, squad, stages, team, transfers
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_db()
+    # Auto-seed on first boot so a fresh (e.g. serverless/ephemeral) database
+    # comes up in Preview mode with data. No-op once stages exist.
+    from .database import SessionLocal
+    from .ingest import seed as seed_mod
+    from .models import Stage
+
+    db = SessionLocal()
+    try:
+        if db.query(Stage).count() == 0:
+            seed_mod.load_stages(db)
+            seed_mod.load_riders(db)
+            from .engine.projection import recompute_projections
+
+            recompute_projections(db)
+            seed_mod.set_state(db, "data_mode", "preview_2025")
+            seed_mod.set_state(db, "transfers_remaining", "8")
+            seed_mod.set_state(db, "credits", "0")
+    finally:
+        db.close()
     yield
 
 

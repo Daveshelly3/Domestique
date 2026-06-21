@@ -17,7 +17,10 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-    database_url: str = f"sqlite:///{Path(__file__).parent.parent / 'domestique.sqlite3'}"
+    # Default to a writable temp path so the app boots on read-only/ephemeral
+    # serverless filesystems (e.g. Vercel). Set DATABASE_URL to Supabase Postgres
+    # for persistence across instances/cold-starts.
+    database_url: str = "sqlite:////tmp/domestique.sqlite3"
     frontend_origin: str = "http://localhost:5173"
 
     vapid_public_key: str = ""
