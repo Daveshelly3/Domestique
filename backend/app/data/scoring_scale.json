@@ -1,0 +1,16 @@
+{
+  "_note": "PLACEHOLDER scoring scale. Capture the exact per-finish-position points verbatim from the Tissot in-game 'Rules' tab before the race (PRD §3, §13). Verify against stage 1 actuals.",
+  "model_version": "rules-v1",
+  "stage_finish_points": {
+    "1": 50, "2": 44, "3": 40, "4": 36, "5": 32, "6": 30, "7": 28, "8": 26,
+    "9": 24, "10": 22, "11": 20, "12": 18, "13": 16, "14": 14, "15": 12,
+    "16": 10, "17": 9, "18": 8, "19": 7, "20": 6, "default_top_40": 4
+  },
+  "breakaway_points_per_km": 1,
+  "intermediate_sprint_top3": [6, 4, 2],
+  "kom_points_by_category": {"hc": 10, "1": 8, "2": 5, "3": 2, "4": 1},
+  "stage21_no_double_categories": [
+    "gc_top100", "points_classification", "kom_classification",
+    "young_rider", "super_combatif"
+  ]
+}

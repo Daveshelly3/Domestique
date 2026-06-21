@@ -1,0 +1,17 @@
+{
+  "name": "Domestique — TdF Fantasy Strategist",
+  "short_name": "Domestique",
+  "description": "Tour de France Fantasy by Tissot decision-support.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#111827",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

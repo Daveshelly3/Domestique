@@ -1,0 +1,31 @@
+{
+  "_note": "PLACEHOLDER 2025-style seed dataset (PRD §8.1). Stand-in so the optimizer, projections and UI are testable before the real 2026 startlist/prices publish. Names are real riders; star_price/form are illustrative, not official Tissot values.",
+  "season": 2025,
+  "riders": [
+    {"name": "Tadej Pogacar", "team": "UAE Team Emirates", "archetype": "leader", "star_price": 30.0, "form": 0.97},
+    {"name": "Jonas Vingegaard", "team": "Visma-Lease a Bike", "archetype": "leader", "star_price": 28.0, "form": 0.93},
+    {"name": "Remco Evenepoel", "team": "Soudal Quick-Step", "archetype": "leader", "star_price": 24.0, "form": 0.88},
+    {"name": "Primoz Roglic", "team": "Red Bull-BORA", "archetype": "leader", "star_price": 18.0, "form": 0.80},
+
+    {"name": "Mathieu van der Poel", "team": "Alpecin-Deceuninck", "archetype": "all_rounder", "star_price": 20.0, "form": 0.90},
+    {"name": "Wout van Aert", "team": "Visma-Lease a Bike", "archetype": "all_rounder", "star_price": 18.0, "form": 0.85},
+    {"name": "Tom Pidcock", "team": "Q36.5", "archetype": "all_rounder", "star_price": 12.0, "form": 0.78},
+    {"name": "Mads Pedersen", "team": "Lidl-Trek", "archetype": "all_rounder", "star_price": 14.0, "form": 0.84},
+    {"name": "Julian Alaphilippe", "team": "Tudor", "archetype": "all_rounder", "star_price": 9.0, "form": 0.70},
+    {"name": "Marc Hirschi", "team": "Tudor", "archetype": "all_rounder", "star_price": 8.0, "form": 0.72},
+    {"name": "Stefan Kung", "team": "Groupama-FDJ", "archetype": "all_rounder", "star_price": 7.0, "form": 0.66},
+
+    {"name": "Jasper Philipsen", "team": "Alpecin-Deceuninck", "archetype": "sprinter", "star_price": 16.0, "form": 0.88},
+    {"name": "Biniam Girmay", "team": "Intermarche-Wanty", "archetype": "sprinter", "star_price": 13.0, "form": 0.82},
+    {"name": "Dylan Groenewegen", "team": "Jayco-AlUla", "archetype": "sprinter", "star_price": 10.0, "form": 0.74},
+    {"name": "Arnaud De Lie", "team": "Lotto", "archetype": "sprinter", "star_price": 9.0, "form": 0.71},
+    {"name": "Fabio Jakobsen", "team": "Picnic-PostNL", "archetype": "sprinter", "star_price": 7.0, "form": 0.62},
+
+    {"name": "Jonas Abrahamsen", "team": "Uno-X", "archetype": "climber", "star_price": 6.0, "form": 0.68},
+    {"name": "Felix Gall", "team": "Decathlon-AG2R", "archetype": "climber", "star_price": 10.0, "form": 0.76},
+    {"name": "Carlos Rodriguez", "team": "INEOS Grenadiers", "archetype": "climber", "star_price": 12.0, "form": 0.79},
+    {"name": "Santiago Buitrago", "team": "Bahrain Victorious", "archetype": "climber", "star_price": 9.0, "form": 0.73},
+    {"name": "Lenny Martinez", "team": "Bahrain Victorious", "archetype": "climber", "star_price": 8.0, "form": 0.70},
+    {"name": "Guillaume Martin", "team": "Groupama-FDJ", "archetype": "climber", "star_price": 6.0, "form": 0.64}
+  ]
+}

@@ -1,0 +1,88 @@
+:root {
+  --bg: #0b1220;
+  --panel: #111827;
+  --panel-2: #1f2937;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #22d3ee;
+  --yellow: #fde047;
+  --green: #34d399;
+  --red: #f87171;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+
+.app { max-width: 480px; margin: 0 auto; min-height: 100vh;
+  display: flex; flex-direction: column; }
+
+.topbar { display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px; background: var(--panel); position: sticky; top: 0; z-index: 10; }
+.topbar h1 { font-size: 20px; margin: 0; color: var(--yellow); }
+
+.badge { font-size: 11px; padding: 4px 8px; border-radius: 999px; }
+.badge.preview { background: #3f2d0d; color: var(--yellow); }
+.badge.live { background: #06321f; color: var(--green); }
+
+.content { flex: 1; padding: 16px 16px 88px; }
+
+h2 { font-size: 18px; margin: 0 0 12px; }
+h3 { font-size: 15px; margin: 20px 0 8px; color: var(--accent); }
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+.error { color: var(--red); }
+
+.meters { display: grid; gap: 8px; margin-bottom: 12px; }
+.meter-label { font-size: 12px; margin-bottom: 3px; }
+.meter-track { height: 7px; background: var(--panel-2); border-radius: 4px; overflow: hidden; }
+.meter-fill { height: 100%; background: var(--accent); }
+.meter-fill.over { background: var(--red); }
+
+.riderlist { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.ridercard { background: var(--panel); border-radius: 10px; padding: 12px; }
+.ridercard.highlight { border: 1px solid var(--yellow); }
+.ridercard.small { padding: 10px 12px; display: flex; justify-content: space-between; align-items: center; }
+.row { display: flex; justify-content: space-between; align-items: center; }
+.price { color: var(--yellow); font-weight: 600; }
+.why { margin: 8px 0 0; font-size: 12px; color: var(--muted); }
+
+.chip { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--panel-2); }
+.chip.leader { background: #3b0764; color: #e9d5ff; }
+.chip.all_rounder { background: #0c4a6e; color: #bae6fd; }
+.chip.sprinter { background: #4c1d24; color: #fecaca; }
+.chip.climber { background: #064e3b; color: #a7f3d0; }
+
+.stagecard { background: var(--panel); border-radius: 10px; padding: 14px; margin-bottom: 8px; }
+.countdown { color: var(--yellow); font-weight: 600; margin: 8px 0 0; }
+
+.verdict { font-size: 22px; font-weight: 700; text-align: center; padding: 16px;
+  border-radius: 12px; margin: 12px 0; }
+.verdict.act { background: #06321f; color: var(--green); }
+.verdict.hold { background: #1f2937; color: var(--muted); }
+.swap { text-align: center; margin: 12px 0; }
+.swap .arrow { font-size: 20px; color: var(--muted); margin: 4px 0; }
+.ridercard.out { border-left: 3px solid var(--red); }
+.ridercard.in { border-left: 3px solid var(--green); }
+.rationale { background: var(--panel); border-radius: 10px; padding: 12px; font-size: 13px; }
+
+.inputs { display: flex; gap: 12px; margin: 12px 0; }
+.inputs label { display: flex; flex-direction: column; font-size: 12px; gap: 4px; color: var(--muted); }
+.inputs input { background: var(--panel-2); border: none; color: var(--text);
+  padding: 8px; border-radius: 8px; width: 100px; }
+button.primary { background: var(--accent); color: #04212a; border: none;
+  padding: 10px 16px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.saved { color: var(--green); margin-left: 10px; font-size: 13px; }
+
+.selectable { cursor: pointer; border: 1px solid transparent; }
+.selectable.picked { border-color: var(--accent); background: var(--panel-2); }
+.riderlist.pick { margin-top: 14px; }
+
+.alts { margin-top: 16px; }
+.alts summary { cursor: pointer; color: var(--accent); }
+
+.tabbar { position: fixed; bottom: 0; left: 0; right: 0; max-width: 480px; margin: 0 auto;
+  display: flex; background: var(--panel); border-top: 1px solid var(--panel-2); }
+.tab { flex: 1; text-align: center; padding: 12px 4px; font-size: 12px;
+  color: var(--muted); text-decoration: none; }
+.tab.active { color: var(--accent); }
