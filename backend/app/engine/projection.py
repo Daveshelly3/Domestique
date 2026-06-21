@@ -43,10 +43,14 @@ def project_stage(rider: Rider, stage: Stage) -> float:
     suit = SUITABILITY.get(stage.type, {}).get(rider.archetype, 0.3)
     base = _TOP1 * suit * rider.form
 
-    # Leaders/all-rounders steadily bank GC-position points across road stages.
+    # GC-classification accrual: only true GC *leaders* bank steady standings
+    # points, and chiefly on the stages where the GC is contested (mountains,
+    # summit finishes, time trials). Modest per-stage so it complements rather
+    # than swamps stage-finish scoring.
     gc_bonus = 0.0
-    if rider.archetype in ("leader", "all_rounder") and not stage.is_ttt:
-        gc_bonus = 6.0 * rider.form
+    if rider.archetype == "leader":
+        gc_weight = {"summit": 1.0, "mountain": 0.9, "itt": 0.8}.get(stage.type, 0.25)
+        gc_bonus = 7.0 * gc_weight * rider.form
 
     # TTT: each qualified rider gets ~1/8 of the team's placing points (PRD §3).
     # Modelled as a flat split scaled by form; team strength refinement is v1.1.

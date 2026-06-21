@@ -15,23 +15,21 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 
 from .database import SessionLocal
 from .engine.projection import recompute_projections
-from .ingest.scraper import StartlistAdapter
-from .models import AppState, Stage, PushSubscription
+from .ingest.seed import ingest_live_startlist
+from .models import Stage, PushSubscription
 from .notify import send_push
 
 
 def daily_refresh() -> None:
     db = SessionLocal()
     try:
-        adapter = StartlistAdapter()
-        if adapter.is_available():
-            # TODO: ingest scraped riders/prices here, then flip the badge.
-            row = db.get(AppState, "data_mode") or AppState(key="data_mode")
-            row.value = "live_2026"
-            db.merge(row)
-            db.commit()
-        n = recompute_projections(db)
-        print(f"[scheduler] recomputed {n} projections")  # noqa: T201
+        # Poll for the real 2026 startlist; on publish this ingests + flips the
+        # badge to '2026 Live' and recomputes. Returns 0 while still in Preview.
+        ingested = ingest_live_startlist(db)
+        if ingested:
+            print(f"[scheduler] ingested {ingested} riders -> 2026 Live")  # noqa: T201
+        else:
+            recompute_projections(db)  # keep Preview projections fresh
         _queue_deadline_pushes(db)
     finally:
         db.close()
