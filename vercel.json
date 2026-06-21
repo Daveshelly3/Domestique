@@ -5,7 +5,7 @@
   "installCommand": "echo skip-root-install",
   "rewrites": [
     {
-      "source": "/((?!assets/|.*\\.).*)",
+      "source": "/((?!assets/|_/|.*\\.).*)",
       "destination": "/index.html"
     }
   ],
