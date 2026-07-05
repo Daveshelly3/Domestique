@@ -31,6 +31,10 @@ async def lifespan(app: FastAPI):
             seed_mod.set_state(db, "data_mode", "preview_2025")
             seed_mod.set_state(db, "transfers_remaining", "8")
             seed_mod.set_state(db, "credits", "0")
+    except Exception:
+        # Concurrent cold starts can race to seed the shared Postgres; a unique
+        # violation just means another instance won. Safe to ignore.
+        db.rollback()
     finally:
         db.close()
     yield
